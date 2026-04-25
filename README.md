@@ -16,12 +16,6 @@
 ### 5. jalankan di browser : http://localhost:8000/api/docs#/
 <img width="947" height="926" alt="Cuplikan layar 2026-04-25 151546" src="https://github.com/user-attachments/assets/5e157a6f-0d9d-4176-a3a9-c5ff2420d189" />
 
-<img width="1918" height="1013" alt="Cuplikan layar 2026-04-25 210833" src="https://github.com/user-attachments/assets/b5ebd0f0-0b4e-4119-8ec2-35c9bd25bdb5" />
-
-### CEK POSTMAN
-<img width="1449" height="862" alt="Cuplikan layar 2026-04-25 233940" src="https://github.com/user-attachments/assets/f157dc06-1918-4bad-8887-394fe1ca885b" />
-
-
 # Authentication:
 
 ### 1. POST /api/auth/register 
@@ -29,6 +23,7 @@
 
 ### 2. POST /api/auth/login 
 <img width="1382" height="709" alt="Cuplikan layar 2026-04-25 162807" src="https://github.com/user-attachments/assets/d2149796-9c1a-4470-aea4-d3ad2d0ca912" />
+<img width="1918" height="1013" alt="Cuplikan layar 2026-04-25 210833" src="https://github.com/user-attachments/assets/b5ebd0f0-0b4e-4119-8ec2-35c9bd25bdb5" />
 
 ### 3. POST /api/auth/refresh 
 <img width="1128" height="594" alt="Cuplikan layar 2026-04-25 165608" src="https://github.com/user-attachments/assets/46a935ca-6bc7-47ae-aa21-a43412376403" />
@@ -69,6 +64,9 @@
 ### 3. POST /api/enrollments/{id}/progress 
 <img width="1357" height="732" alt="Cuplikan layar 2026-04-25 233649" src="https://github.com/user-attachments/assets/4dc14aeb-9d13-491c-9c67-7709e026952f" />
 
+
+### CEK POSTMAN
+<img width="1449" height="862" alt="Cuplikan layar 2026-04-25 233940" src="https://github.com/user-attachments/assets/f157dc06-1918-4bad-8887-394fe1ca885b" />
 
 
 
