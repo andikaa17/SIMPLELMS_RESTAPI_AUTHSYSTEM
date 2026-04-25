@@ -40,18 +40,33 @@
 # Courses (Public):
 
 ### 1. GET /api/courses - List courses (with pagination & filters)
+<img width="1390" height="686" alt="image" src="https://github.com/user-attachments/assets/8430e0fc-905e-4e6b-a83e-e18f3e2fa524" />
 
-GET /api/courses/{id} - Course detail
-Courses (Protected):
+### 2. GET /api/courses/{id} - Course detail
+<img width="1388" height="728" alt="image" src="https://github.com/user-attachments/assets/f97de14c-48e7-459a-a5ee-3aa26b45a8f1" />
 
-POST /api/courses - Create course (Instructor)
-PATCH /api/courses/{id} - Update course (Owner)
-DELETE /api/courses/{id} - Delete course (Admin)
-Enrollments:
+# Courses (Protected):
 
-POST /api/enrollments - Enroll to course (Student)
-GET /api/enrollments/my-courses - My enrolled courses
-POST /api/enrollments/{id}/progress - Mark lesson complete
+### 1. POST /api/courses - Create course (Instructor)
+<img width="1395" height="796" alt="Cuplikan layar 2026-04-25 230501" src="https://github.com/user-attachments/assets/c803102a-9287-4f0e-8459-5b5e98e84db1" />
+
+### 2. PATCH /api/courses/{id} - Update course (Owner)
+   <img width="1371" height="704" alt="Cuplikan layar 2026-04-25 231102" src="https://github.com/user-attachments/assets/cc8c3e77-951f-46bc-913e-1b2fc0b7fc8e" />
+
+### 3. DELETE /api/courses/{id} - Delete course (Admin)
+   <img width="1450" height="837" alt="Cuplikan layar 2026-04-25 231430" src="https://github.com/user-attachments/assets/205b320a-9f60-4654-8974-7bbddf200fcb" />
+
+# Enrollments:
+
+### 1. POST /api/enrollments - Enroll to course (Student)
+<img width="1441" height="753" alt="Cuplikan layar 2026-04-25 232526" src="https://github.com/user-attachments/assets/5464ac7d-4cc4-4b75-8941-cbf3c710404a" />
+
+### 2. GET /api/enrollments/my-courses - My enrolled courses
+<img width="1416" height="859" alt="Cuplikan layar 2026-04-25 232728" src="https://github.com/user-attachments/assets/3482607d-573e-435b-a35d-c721fd8d838e" />
+
+### 3. POST /api/enrollments/{id}/progress - Mark lesson complete
+![Uploading Cuplikan layar 2026-04-25 233649.png…]()
+
 
 
 
