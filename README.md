@@ -65,7 +65,7 @@
 <img width="1416" height="859" alt="Cuplikan layar 2026-04-25 232728" src="https://github.com/user-attachments/assets/3482607d-573e-435b-a35d-c721fd8d838e" />
 
 ### 3. POST /api/enrollments/{id}/progress - Mark lesson complete
-![Uploading Cuplikan layar 2026-04-25 233649.png…]()
+<img width="1357" height="732" alt="Cuplikan layar 2026-04-25 233649" src="https://github.com/user-attachments/assets/4dc14aeb-9d13-491c-9c67-7709e026952f" />
 
 
 
