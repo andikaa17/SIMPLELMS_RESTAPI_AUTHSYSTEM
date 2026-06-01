@@ -1,0 +1,980 @@
+{
+  "info": {
+    "name": "Simple LMS API - Complete",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000/api"
+    },
+    {
+      "key": "token_andika",
+      "value": ""
+    },
+    {
+      "key": "token_budi",
+      "value": ""
+    },
+    {
+      "key": "token_admin",
+      "value": ""
+    },
+    {
+      "key": "refresh_andika",
+      "value": ""
+    },
+    {
+      "key": "refresh_budi",
+      "value": ""
+    },
+    {
+      "key": "course_id_1",
+      "value": ""
+    },
+    {
+      "key": "course_id_2",
+      "value": ""
+    },
+    {
+      "key": "course_id_3",
+      "value": ""
+    },
+    {
+      "key": "enrollment_id_1",
+      "value": ""
+    },
+    {
+      "key": "enrollment_id_2",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "01. REGISTER",
+      "item": [
+        {
+          "name": "Register Andika (Student)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"andika\",\n  \"email\": \"andika@mail.com\",\n  \"password\": \"andika123\",\n  \"first_name\": \"Andika\",\n  \"last_name\": \"Pratama\",\n  \"role\": \"student\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register/"
+            }
+          }
+        },
+        {
+          "name": "Register Budi (Instructor)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"budi\",\n  \"email\": \"budi@mail.com\",\n  \"password\": \"budi123\",\n  \"first_name\": \"Budi\",\n  \"last_name\": \"Santoso\",\n  \"role\": \"instructor\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register/"
+            }
+          }
+        },
+        {
+          "name": "Register Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"email\": \"admin@mail.com\",\n  \"password\": \"admin123\",\n  \"first_name\": \"Super\",\n  \"last_name\": \"Admin\",\n  \"role\": \"admin\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register/"
+            }
+          }
+        },
+        {
+          "name": "Register Student Lain (Cindy)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"cindy\",\n  \"email\": \"cindy@mail.com\",\n  \"password\": \"cindy123\",\n  \"first_name\": \"Cindy\",\n  \"last_name\": \"Cahaya\",\n  \"role\": \"student\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register/"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "02. LOGIN",
+      "item": [
+        {
+          "name": "Login Andika",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var json = pm.response.json();",
+                  "pm.collectionVariables.set(\"token_andika\", json.access);",
+                  "pm.collectionVariables.set(\"refresh_andika\", json.refresh);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"andika\",\n  \"password\": \"andika123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login/"
+            }
+          }
+        },
+        {
+          "name": "Login Budi",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var json = pm.response.json();",
+                  "pm.collectionVariables.set(\"token_budi\", json.access);",
+                  "pm.collectionVariables.set(\"refresh_budi\", json.refresh);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"budi\",\n  \"password\": \"budi123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login/"
+            }
+          }
+        },
+        {
+          "name": "Login Admin",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var json = pm.response.json();",
+                  "pm.collectionVariables.set(\"token_admin\", json.access);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login/"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "03. TOKEN MANAGEMENT",
+      "item": [
+        {
+          "name": "Refresh Token Andika",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refresh\": \"{{refresh_andika}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/refresh/"
+            }
+          }
+        },
+        {
+          "name": "Refresh Token Budi",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refresh\": \"{{refresh_budi}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/refresh/"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "04. PROFILE",
+      "item": [
+        {
+          "name": "Lihat Profile Andika",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_andika}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/me/"
+            }
+          }
+        },
+        {
+          "name": "Lihat Profile Budi",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_budi}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/me/"
+            }
+          }
+        },
+        {
+          "name": "Update Profile Andika",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_andika}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"Andika\",\n  \"last_name\": \"Pratama Putra\",\n  \"email\": \"andikapratama@mail.com\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/me/"
+            }
+          }
+        },
+        {
+          "name": "Ganti Password Andika",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_andika}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"old_password\": \"andika123\",\n  \"new_password\": \"andika456\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/change-password/"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "05. COURSES (PUBLIC)",
+      "item": [
+        {
+          "name": "List Semua Course",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/courses/?page=1&limit=10"
+            }
+          }
+        },
+        {
+          "name": "List Course dengan Filter",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/courses/?search=python&page=1&limit=10"
+            }
+          }
+        },
+        {
+          "name": "Detail Course by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/courses/{{course_id_1}}/"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "06. COURSES (PROTECTED - INSTRUCTOR)",
+      "item": [
+        {
+          "name": "Buat Course - Python Dasar",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var json = pm.response.json();",
+                  "if(json.id) pm.collectionVariables.set(\"course_id_1\", json.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_budi}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Python Dasar\",\n  \"description\": \"Belajar Python dari nol untuk pemula. Cocok buat yang baru mulai coding.\",\n  \"price\": 150000\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/courses/"
+            }
+          }
+        },
+        {
+          "name": "Buat Course - Django REST",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var json = pm.response.json();",
+                  "if(json.id) pm.collectionVariables.set(\"course_id_2\", json.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_budi}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Django REST Framework\",\n  \"description\": \"Membangun REST API dengan Django dan DRF. Termasuk authentication, pagination, dan testing.\",\n  \"price\": 250000\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/courses/"
+            }
+          }
+        },
+        {
+          "name": "Buat Course - PostgreSQL",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var json = pm.response.json();",
+                  "if(json.id) pm.collectionVariables.set(\"course_id_3\", json.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_budi}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"PostgreSQL untuk Pemula\",\n  \"description\": \"Belajar database PostgreSQL dari dasar. Query, join, indexing, dan performa.\",\n  \"price\": 200000\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/courses/"
+            }
+          }
+        },
+        {
+          "name": "Buat Course - Docker",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_budi}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Docker & Containerization\",\n  \"description\": \"Belajar Docker, container, docker-compose, dan deployment.\",\n  \"price\": 300000\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/courses/"
+            }
+          }
+        },
+        {
+          "name": "Buat Course - Git & Github",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_budi}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Git & GitHub untuk Tim\",\n  \"description\": \"Version control dengan Git, branch management, dan kolaborasi tim.\",\n  \"price\": 120000\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/courses/"
+            }
+          }
+        },
+        {
+          "name": "Update Course (PATCH)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_budi}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 275000,\n  \"description\": \"Update: Sudah termasuk materi tentang API testing dan deployment.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/courses/{{course_id_2}}/"
+            }
+          }
+        },
+        {
+          "name": "Update Course Full (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_budi}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Python Dasar - Updated\",\n  \"description\": \"Belajar Python dari nol sampai mahir. Termasuk OOP dan database.\",\n  \"price\": 180000\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/courses/{{course_id_1}}/"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "07. COURSES (PROTECTED - ADMIN)",
+      "item": [
+        {
+          "name": "Hapus Course (Admin only)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_admin}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/courses/{{course_id_3}}/"
+            }
+          }
+        },
+        {
+          "name": "Update Course (Admin bisa update semua)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_admin}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"[ADMIN] PostgreSQL Advanced\",\n  \"price\": 350000\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/courses/{{course_id_3}}/"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "08. ENROLLMENTS (STUDENT)",
+      "item": [
+        {
+          "name": "Enroll ke Course 1 (Python)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var json = pm.response.json();",
+                  "if(json.id) pm.collectionVariables.set(\"enrollment_id_1\", json.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_andika}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"course_id\": {{course_id_1}}\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/enrollments/"
+            }
+          }
+        },
+        {
+          "name": "Enroll ke Course 2 (Django)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var json = pm.response.json();",
+                  "if(json.id) pm.collectionVariables.set(\"enrollment_id_2\", json.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_andika}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"course_id\": {{course_id_2}}\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/enrollments/"
+            }
+          }
+        },
+        {
+          "name": "Coba Enroll Udah Pernah (Harusnya Error 409)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_andika}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"course_id\": {{course_id_1}}\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/enrollments/"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "09. MY COURSES",
+      "item": [
+        {
+          "name": "Lihat Course Saya (Andika)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_andika}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/enrollments/my-courses/"
+            }
+          }
+        },
+        {
+          "name": "Lihat Course Saya (Cindy)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_cindy}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/enrollments/my-courses/"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "10. PROGRESS",
+      "item": [
+        {
+          "name": "Tandai Lesson 1 Selesai",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_andika}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/enrollments/{{enrollment_id_1}}/progress/"
+            }
+          }
+        },
+        {
+          "name": "Tandai Lesson 2 Selesai",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_andika}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content_id\": 2\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/enrollments/{{enrollment_id_1}}/progress/"
+            }
+          }
+        },
+        {
+          "name": "Tandai Lesson 3 Selesai",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_andika}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content_id\": 3\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/enrollments/{{enrollment_id_1}}/progress/"
+            }
+          }
+        },
+        {
+          "name": "Tandai Lagi Lesson 1 (Harusnya Error 409)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_andika}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/enrollments/{{enrollment_id_1}}/progress/"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "11. ROLE VALIDATION TESTS",
+      "item": [
+        {
+          "name": "[FAIL] Student Coba Buat Course (Harusnya 403)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_andika}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Coba Buat Course\",\n  \"price\": 100000\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/courses/"
+            }
+          }
+        },
+        {
+          "name": "[FAIL] Student Coba Update Course (Harusnya 403)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_andika}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 1000\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/courses/{{course_id_1}}/"
+            }
+          }
+        },
+        {
+          "name": "[FAIL] Student Coba Hapus Course (Harusnya 403)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_andika}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/courses/{{course_id_1}}/"
+            }
+          }
+        },
+        {
+          "name": "[FAIL] Instructor Coba Enroll (Harusnya 403)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_budi}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"course_id\": {{course_id_1}}\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/enrollments/"
+            }
+          }
+        },
+        {
+          "name": "[FAIL] Instructor Coba Hapus Course (Bukan Owner, Harusnya 403)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_budi}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/courses/{{course_id_3}}/"
+            }
+          }
+        },
+        {
+          "name": "[SUCCESS] Admin Hapus Course (Harusnya 200/204)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token_admin}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/courses/{{course_id_3}}/"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
