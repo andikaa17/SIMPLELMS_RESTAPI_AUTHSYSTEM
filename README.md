@@ -30,7 +30,7 @@ API tersedia di: `http://localhost:8000/api/docs`
 ### 6. GET `/api/courses` - List Course
 ![List Courses](/Dokumentasi/image-2.png)
 
-### 7. POST `/api/courses` - Buat Course untuk Instructor
+### 7. POST `/api/courses` - Buat Course dengan role Instructor
 ![Create Course](/Dokumentasi/image-3.png)
 
 ### 8. GET `/api/courses/{id}` - Detail 
